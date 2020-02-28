@@ -1,7 +1,7 @@
 { 
 	"software": [{ 
-		"relid":"BGZ106", 
-		"description":"IBM Dependency Based Build V1.0.6",
+		"relid":"GIT100", 
+		"description":"Rocket GIT V1.0.0",
 		"prereq":[],
 		"coreq": []
 	}] 

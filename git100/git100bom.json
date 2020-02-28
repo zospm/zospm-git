@@ -1,20 +1,20 @@
 {
         "software": [
         {
-                "name":"BGZ106",
+                "name":"GIT100",
                 "datasets":[
                         {
-                                "dsname":"SBGZA001",
+                                "dsname":"SRL2ZFS",
                                 "dstype":"ZFS",
                                 "primary":3800,
                                 "secondary":50,
                                 "zones":["T"],
-                                "dddefpath":"usr/lpp/IBM/dbb/IBM/",
-                                "mountpnt":"usr/lpp/IBM/dbb/",
-				"leaves":"IBM"
+                                "dddefpath":"rsusr/ported/IBM/",
+                                "mountpnt":"rsusr/ported/IBM/",
+				"leaves":"git"
                         },
                         {
-                                "dsname":"SBGZSAMP",
+                                "dsname":"SRL2SAMP",
                                 "dstype":"PDSE",
                                 "recfm":"FB",
                                 "lrecl":80,
@@ -23,7 +23,7 @@
                                 "zones":["T"]
                         },
                         {
-                                "dsname":"ABGZSAMP",
+                                "dsname":"ARL2SAMP",
                                 "dstype":"PDSE",
                                 "recfm":"FB",
                                 "lrecl":80,
@@ -32,11 +32,11 @@
                                 "zones":["D"]
                         },
                         {
-                                "dsname":"ABGZHFS",
+                                "dsname":"ARL2HFS",
                                 "dstype":"PDSE",
                                 "recfm":"VB",
                                 "lrecl":8796,
-                                "primary":1200,
+                                "primary":5500,
                                 "secondary":20,
                                 "zones":["D"]
                         }
