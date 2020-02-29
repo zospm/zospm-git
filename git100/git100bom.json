@@ -4,15 +4,15 @@
                 "name":"GIT100",
                 "datasets":[
                         {
-                                "dsname":"SRL2ZFS",
+                                "dsname":"SRL2A001",
                                 "dstype":"ZFS",
                                 "primary":3800,
                                 "secondary":50,
                                 "zones":["T"],
-                                "dddefpath":"rsusr/ported/IBM/",
-                                "mountpnt":"rsusr/ported/IBM/",
-				"leaves":"git"
-                        },
+                                "dddefpath":"rsusr/ported/",
+                                "mountpnt":"rsusr/ported/",
+				"leaves":"IBM"
+			},
                         {
                                 "dsname":"SRL2SAMP",
                                 "dstype":"PDSE",
@@ -36,8 +36,8 @@
                                 "dstype":"PDSE",
                                 "recfm":"VB",
                                 "lrecl":8796,
-                                "primary":5500,
-                                "secondary":20,
+                                "primary":6600,
+                                "secondary":100,
                                 "zones":["D"]
                         }
                 ]
