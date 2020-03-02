@@ -1,4 +1,47 @@
 #!/bin/sh
-# to be written
+# Verify that a basic git --version works correctly
+
+runivp() {
+	GIT_ROOT="${ZBREW_ZFSROOT}rsusr/ported/bin"
+
+	if ! [ -f "${GIT_ROOT}/git" ]; then
+		echo "git configure failed. Expected ${GIT_ROOT} to exist and contain the 'git' tool" >&2
+		return 8
+	fi
+
+	actual=`git --version`
+	rc=$?
+	if [ ${rc} != 0 ]; then
+		echo "git --version return code was: $rc. Expected 0" >&2
+		return 12
+	fi
+	expected='git version 2.14.4_zos_b09'
+	if [ "${actual}" != "${expected}" ]; then
+		echo "git --version returns unexpected output: ${actual} (Expected ${expected})" >&2
+		return 16
+	fi
+}
+	
+out=$(whence zbrewfuncs >/dev/null)
+if [ $? -eq 0 ]; then
+	. zbrewfuncs
+else
+	echo "zbrew tools need to be in your PATH"
+	exit 4
+fi
+
+mydir=$(callerdir ${0})
+props="${mydir}/../../zbrew/properties/globalprops.json"
+zbrewpropse zbrew global "${props}"
+
+props="${mydir}/../../zbrew/properties/zbrewprops.json"
+zbrewpropse zbrew config "${props}"
+
+runivp
+rc=$?
+if [ $rc -gt 0 ]; then
+	echo "IVP failed. Installation aborted"
+	exit $rc
+fi
 
 exit 0
