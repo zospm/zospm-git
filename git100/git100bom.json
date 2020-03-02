@@ -9,9 +9,9 @@
                                 "primary":3800,
                                 "secondary":50,
                                 "zones":["T"],
-                                "dddefpath":"rsusr/ported/",
-                                "mountpnt":"rsusr/ported/",
-				"leaves":"IBM"
+                                "dddefpath":"rsusr/ported/IBM/",
+                                "mountpnt":"rsusr/",
+				"leaves":"ported,ported/IBM"
 			},
                         {
                                 "dsname":"SRL2SAMP",
