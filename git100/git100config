@@ -1,8 +1,9 @@
 #!/bin/sh
 # Verify that a basic git --version works correctly
 
+# msf - change this to ZBREW_TGT_ZFSROOT once dzip support in
 runivp() {
-	GIT_ROOT="${ZBREW_ZFSROOT}rsusr/ported/bin"
+	GIT_ROOT="${ZBREW_SRC_ZFSROOT}rsusr/ported/bin"
 
 	if ! [ -f "${GIT_ROOT}/git" ]; then
 		echo "git configure failed. Expected ${GIT_ROOT} to exist and contain the 'git' tool" >&2
@@ -31,10 +32,7 @@ else
 fi
 
 mydir=$(callerdir ${0})
-props="${mydir}/../../zbrew/properties/globalprops.json"
-zbrewpropse zbrew global "${props}"
-
-props="${mydir}/../../zbrew/properties/zbrewprops.json"
+props="${mydir}/../../zbrew/zbrewglobalprops.json"
 zbrewpropse zbrew config "${props}"
 
 runivp
