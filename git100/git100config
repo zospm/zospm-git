@@ -1,9 +1,9 @@
 #!/bin/sh
 # Verify that a basic git --version works correctly
 
-# msf - change this to ZBREW_TGT_ZFSROOT once dzip support in
+# msf - change this to ZOSPM_TGT_ZFSROOT once dzip support in
 runivp() {
-	GIT_ROOT="${ZBREW_SRC_ZFSROOT}rsusr/ported/bin"
+	GIT_ROOT="${ZOSPM_SRC_ZFSROOT}rsusr/ported/bin"
 
 	if ! [ -f "${GIT_ROOT}/git" ]; then
 		echo "git configure failed. Expected ${GIT_ROOT} to exist and contain the 'git' tool" >&2
@@ -23,17 +23,17 @@ runivp() {
 	fi
 }
 
-out=$(whence zbrewexternalfuncs >/dev/null)
+out=$(whence zospmexternalfuncs >/dev/null)
 if [ $? -eq 0 ]; then
-	. zbrewexternalfuncs
+	. zospmexternalfuncs
 else    	
-	echo "zbrew tools need to be in your PATH" >&2
+	echo "zospm tools need to be in your PATH" >&2
 	exit 4
 fi
 
 mydir=$(callerdir ${0})
-props="${mydir}/../../zbrew/zbrewglobalprops.json"
-zbrewpropse zbrew config "${props}"
+props="${mydir}/../../zospm/zospmglobalprops.json"
+zospmpropse zospm config "${props}"
 
 runivp
 rc=$?
